@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		New Artist
+	</title>
+	<link rel="stylesheet" href="/stile.css?version=3" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/logo-siw.png" width="50%"/></a></div>
+	<h1>Aggiungi un artista</h1>
+	<form th:action="@{/artists}" method="POST" th:object="${artist}">
+		<div>
+			<span th:text="${messaggioErrore}">Errore</span>
+		</div>
+		
+		<div>
+			<label for="name">Nome:</label> <span><input required type="text" th:field="${artist.name}" id="name"/></span>
+		</div>
+		
+		<div>
+			<label for="surname">Cognome:</label> <span><input required type="text" th:field="${artist.surname}" id="surname"/></span>
+		</div>
+		
+		<div>
+			<label for="dateOfBirth">Anno di nascita:</label> <span><input required type="date" th:field="${artist.dateOfBirth}" id="dateOfBirth"/></span>
+		</div>
+
+		<div>
+			<label for="nationality">Nazionalità:</label> <span><input type="text" th:field="${artist.nationality}" id="nationality" /></span>
+		</div>
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+	</form>
+</body>
+
+</html>

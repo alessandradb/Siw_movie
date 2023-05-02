@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Nuova News
+	</title>
+	<link rel="stylesheet" href="/stile.css?version=3" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/logo-siw.png" width="50%"/></a></div>
+	<h1>Aggiungi una news</h1>
+	<form th:action="@{/generalNews}" method="POST" th:object="${news}">
+		<div>
+			<span th:text="${messaggioErrore}">Errore</span>
+		</div>
+		
+		<div>
+			<label for="title">Titolo:</label> <span><input required type="text" th:field="${news.title}" id="title"/></span>
+		</div>
+		
+		<div>
+			<label for="date">Data:</label> <span><input required type="date" th:field="${news.date}" id="date"/></span>
+		</div>
+		
+		<div>
+			<label for="text">Descrizione:</label> <span><input required type="text" th:field="${news.text}" id="text"/></span>
+		</div>
+		
+		<div>
+			<span><button type="submit">Conferma</button></span>
+		</div>
+	</form>
+</body>
+
+</html>

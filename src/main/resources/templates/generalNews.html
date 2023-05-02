@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Tutte le News</title>
+	<link rel="stylesheet" href="/stile.css?version=2" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/logo-siw.png" width="50%"/></a></div>
+	<h1>News</h1>
+	<div th:if="${generalNews.isEmpty()}">Non ci sono news nel sistema</div>
+	<ul>
+		<li th:each="news : ${generalNews}">
+			<a th:href="@{'/news' + '/' + ${news.id}}"
+				th:text="${news.title}">Up! (2000)</a>
+		</li>
+	</ul>
+</body>
+
+</html>

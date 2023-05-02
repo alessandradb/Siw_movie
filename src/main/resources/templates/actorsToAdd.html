@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Aggiungi attori</title>
+	<link rel="stylesheet" href="/stile.css?version=2" />
+</head>
+
+<body>
+	<div><a href="/"><img src="/logo-siw.png" width="50%"/></a></div>
+	<h1 th:text="${movie.title}"> </h1>
+	<h2>Attori nel film</h2>
+	<div th:if="${movieActors.isEmpty()}">Non ci sono attori per questo film </div>
+	<ul>
+		<li th:each="artist : ${movieActors}">
+			<p th:text="${artist.name} + ' ' + ${artist.surname}"> </p>
+			<a th:href="@{'/removeActorFromMovie/' + ${artist.id} + '/' + ${movie.id}}">Rimuovi</a>
+		</li>
+	</ul>
+	<h3>Tutti gli attori</h3>
+	<div th:if="${notActorMovie.isEmpty()}">Non ci sono attori</div>
+	<ul>
+		<li th:each="artist : ${notActorMovie}">
+			<p th:text="${artist.name} + ' ' + ${artist.surname}"> </p>
+			<a th:href="@{'/addActorToMovie/' + ${artist.id} + '/' + ${movie.id}}">Aggiungi</a>
+		</li>
+	</ul>
+	<a th:href="@{'/formUpdateMovie/'+ ${movie.id}}">Fine</a>
+</body>
+
+</html>
