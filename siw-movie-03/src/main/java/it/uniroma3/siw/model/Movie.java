@@ -22,7 +22,7 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long id; //id
 
     @NotBlank
 	private String title;
